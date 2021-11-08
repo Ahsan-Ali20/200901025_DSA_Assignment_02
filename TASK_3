@@ -1,0 +1,21 @@
+#Node Traversal/Print Linked List  
+class Node:
+   def __init__(self,data):
+     self.data=data
+     self.next=None
+class LinkList:
+   def __init__(self):
+     self.head=None
+
+   def Traverse_Right(self):
+     if self.head == None:
+          print('================================================')
+          print("THERE IS NO NODE EXIST!")
+          print("TRAVERSAL RIGHT")
+          print('================================================')
+          temp = self.head
+          while (temp is not None):
+            print(temp.data)
+            temp = temp.next
+T_R=LinkList()
+T_R.Traverse_Right()
