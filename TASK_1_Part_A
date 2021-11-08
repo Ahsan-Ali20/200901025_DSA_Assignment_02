@@ -1,0 +1,30 @@
+#Insertion at the beginning of the list
+class Node:
+  def __init__(self, data):
+    self.data = data
+    self.next = None
+class LinkedList:
+  def __init__(self):
+    self.head = None
+  def p_front(self, newElement):
+    node = Node(newElement)
+    node.next = self.head 
+    self.head = node   
+  def display(self):
+    temp = self.head
+    if(temp != None):
+      print("================================================================")
+      print("Insertion of elements at the begining of list are : ", end=" ")
+      while (temp is not None):
+        print(temp.data, end=" ")
+        temp = temp.next
+      print()
+      print("================================================================")
+    else:
+      print("Empty List!")
+MyList = LinkedList()
+MyList.p_front(10)
+MyList.p_front(7)
+MyList.p_front(17)
+MyList.p_front(8)
+MyList.display()
