@@ -1,0 +1,42 @@
+#Deletion at the end of the list
+class node:
+  def __init__(self,data=None):
+    self.data= data
+    self.next=None
+    
+class LinkedList:
+  def __init__(self):
+    self.head=node()
+  def append(self,data):
+    new_node=node(data)
+    curr=self.head
+    while curr.next is not None:
+      curr=curr.next
+    curr.next=new_node
+  def delete(self): 
+   temp = self.head
+   while temp.next.next is not None:
+      secondlast = temp.next
+      temp = temp.next
+   temp.next = None  
+  def display(self):
+    curr=self.head
+    dis=[]
+    while curr.next!=None:
+      curr=curr.next
+      dis.append(curr.data)
+    print(dis)
+
+MYList=LinkedList()
+MYList.append(11)
+MYList.append(33)
+MYList.append(55)
+MYList.append(77)
+MYList.append(9)
+print("================================================================")
+print("Nodes Before deletion : ")
+MYList.display()
+MYList.delete()
+print("Nodes After deletion : ")
+MYList.display()
+print("================================================================")
