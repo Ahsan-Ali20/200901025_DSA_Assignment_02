@@ -1,0 +1,61 @@
+#Insertion in arbitrary location of the list
+class Node:
+  def __init__(self, data):
+    self.data = data
+    self.next = None
+class LinkedList:
+  def __init__(self):
+    self.head = None
+  def push(self, addElement):
+    newNode = Node(addElement)
+    if(self.head == None):
+      self.head = newNode
+      return
+    else:
+      temp = self.head
+      while(temp.next != None):
+        temp = temp.next
+      temp.next = newNode
+
+ 
+  def push_at(self, addElement, position):     
+    newNode = Node(addElement) 
+    if(position < 1):
+      print("\nposition should be >= 1.")
+    elif (position == 1):
+      newNode.next = self.head
+      self.head = newNode
+    else:    
+      temp = self.head
+      for i in range(1, position-1):
+        if(temp != None):
+          temp = temp.next   
+      if(temp != None):
+        newNode.next = temp.next
+        temp.next = newNode  
+      else:
+        print("Previous node is null!")
+
+  
+  def PrintList(self):
+    temp = self.head
+    if(temp != None):
+      print("================================================================")
+      print("Insertion of elements in arbitrary location of the list are : ", end=" ")
+      while (temp != None):
+        print(temp.data, end=" ")
+        temp = temp.next
+      print()
+      print("================================================================")
+    else:
+      print("Empty List.")
+
+               
+MyList = LinkedList()
+MyList.push(7)
+MyList.push(16)
+MyList.push(11)
+MyList.PrintList()
+
+MyList.push_at(12, 2)
+MyList.PrintList()
