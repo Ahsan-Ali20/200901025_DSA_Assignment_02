@@ -1,0 +1,37 @@
+#Insertion at the end of the list
+class Node:
+  def __init__(self, data):
+    self.data = data
+    self.next = None
+class LinkedList:
+  def __init__(self):
+    self.head = None  
+  def p_end(self, newElement):
+    node = Node(newElement)
+    if(self.head == None):
+      self.head = node
+      return
+    else:
+      temp = self.head
+      while(temp.next != None):
+        temp = temp.next
+      temp.next = node  
+  def display(self):
+    temp = self.head
+    if(temp != None):
+      print("================================================================")
+      print("Insertion of elements at the end of list are : ", end=" ")
+      print("================================================================")
+      while (temp is not None):
+        print(temp.data, end=" ")
+        temp = temp.next
+      print()
+    else:
+      print("Empty List!")
+MyList = LinkedList()
+MyList.p_end(9)
+MyList.p_end(6)
+MyList.p_end(5)
+MyList.p_end(2)
+ 
+MyList.display()
