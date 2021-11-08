@@ -1,0 +1,54 @@
+#Deletion from the arbitrary location of the list
+class node:
+  def __init__(self,data=None):
+    self.data= data
+    self.next=None
+class LinkedList:
+  def __init__(self):
+    self.head=node()
+  def append(self,data):
+    new_node=node(data)
+    curr=self.head
+    while curr.next is not None:
+      curr=curr.next
+    curr.next=new_node
+  def pop_at(self, position):     
+    if(position < 1):
+      print("\nposition should be >= 1.")
+    elif (position == 1 and self.head != None):
+      nodeToDelete = self.head
+      self.head = self.head.next
+      nodeToDelete = None
+    else:    
+      temp = self.head
+      for i in range(1, position):
+        if(temp != None):
+          temp = temp.next   
+      if(temp != None and temp.next != None):
+        nodeToDelete = temp.next
+        temp.next = temp.next.next
+        nodeToDelete = None 
+      else:
+        print("Node is null.")  
+  def display(self):
+    curr=self.head
+    dis=[]
+    while curr.next!=None:
+      curr=curr.next
+      dis.append(curr.data)
+    print(dis)
+   
+
+MYList=LinkedList()
+MYList.append(22)
+MYList.append(33)
+MYList.append(44)
+MYList.append(66)
+MYList.append(99)
+print("================================================================")
+print("Nodes Before deletion : ")
+MYList.display()
+MYList.pop_at(3)
+print("Nodes After deletion : ")
+MYList.display()
+print("================================================================")
